@@ -288,34 +288,41 @@ public class PanelCalculadora extends JPanel implements ActionListener{
 		else if(comando.equals("btMultiplicar"))
 		{
 			operaciones.setText(operaciones.getText() + "*");
+			interfaz.cambiarOperador("m");
 			deshabilitarBotones(true);
 		}
 		else if(comando.equals("btDividir"))
 		{
 			operaciones.setText(operaciones.getText() + "/");
+			interfaz.cambiarOperador("d");
 			deshabilitarBotones(true);
 		}
 		else if(comando.equals("btSumar"))
 		{
 			operaciones.setText(operaciones.getText() + "+");
+			interfaz.cambiarOperador("s");
 			deshabilitarBotones(true);
 		}
 		else if(comando.equals("btRestar"))
 		{
 			operaciones.setText(operaciones.getText() + "-");
+			interfaz.cambiarOperador("r");
 			deshabilitarBotones(true);
 		}
 		else if(comando.equals("btBorrar"))
-		{
+		{ 
 			if(operaciones.getText().equals(""))
 			{}else
 			{
 				operaciones.setText("");
-			deshabilitarBotones(false);
+				deshabilitarBotones(false);
+				interfaz.cambiarOperador(null);
 			}
 		}else if(comando.equals("btIgual"))
 		{
-			interfaz.enviarMensajeServidor(operaciones.getText());
+			String mensaje = interfaz.enviarMensajeServidor(operaciones.getText());
+			operaciones.setText(mensaje);
+			deshabilitarBotones(false);
 		}
 		else if(comando.equals("btAtras"))
 		{
@@ -325,6 +332,7 @@ public class PanelCalculadora extends JPanel implements ActionListener{
 				String caracter = operaciones.getText().substring(operaciones.getText().length() - 1, operaciones.getText().length());
 				if(caracter.equals("*") || caracter.equals("/") || caracter.equals("+") || caracter.equals("-")) {
 					deshabilitarBotones(false);
+					interfaz.cambiarOperador(null);
 				}
 				operaciones.setText( operaciones.getText().substring(0, operaciones.getText().length() - 1));
 			}

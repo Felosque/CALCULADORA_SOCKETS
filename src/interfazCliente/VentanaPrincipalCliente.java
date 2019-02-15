@@ -25,12 +25,17 @@ public class VentanaPrincipalCliente extends JFrame {
 		
 	}
 	
-	public void enviarMensajeServidor(String pMensaje)
+	public String enviarMensajeServidor(String pMensaje)
 	{
-		socketCliente.enviarYRecibirMensajes(pMensaje);
+		return socketCliente.enviarYRecibirMensajes(pMensaje);
 	}
 	
 
+	public void cambiarOperador(String pOperador)
+	{
+		socketCliente.cambiarOperador(pOperador);
+	}
+	
 	public static void main(String[] args) {
 		VentanaPrincipalCliente ven = new VentanaPrincipalCliente();
 		ven.setVisible(true);
