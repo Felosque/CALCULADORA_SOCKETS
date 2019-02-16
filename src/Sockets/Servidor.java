@@ -32,9 +32,10 @@ public class Servidor {
 		
 			servidor = new ServerSocket(puerto);
 			System.out.println("Inicia servidor");
+			interfazMensajes.mostrarMensajePorInterfaz("El servidor ha iniciado correctamente con el puerto: " + puerto);
 			
 			sc = servidor.accept();
-			System.out.println("Cliente conectado");
+			interfazMensajes.mostrarMensajePorInterfaz("Un cliente se ha conectado el servidor.");
 			
 			while(true)
 			{				
