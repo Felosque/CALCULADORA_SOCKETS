@@ -22,7 +22,6 @@ public class VentanaPrincipalCliente extends JFrame {
 		
 		socketCliente = new Cliente();
 		socketCliente.Iniciar();
-		
 	}
 	
 	public String enviarMensajeServidor(String pMensaje)

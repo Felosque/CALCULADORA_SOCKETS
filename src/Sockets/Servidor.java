@@ -52,7 +52,7 @@ public class Servidor {
 					 
 					String operador = mensaje.substring(mensaje.length() - 1, mensaje.length());
 					
-					int[] numeros = darNumeros(mensaje, operador);
+					double[] numeros = darNumeros(mensaje, operador);
 					if(operador.equals("r"))
 					{
 						mensajeSalida =  String.valueOf( realizarResta(numeros[0], numeros[1]) );
@@ -78,15 +78,15 @@ public class Servidor {
 	}
 	
 	
-	public int[] darNumeros(String pCadena, String pOperacion)
+	public double[] darNumeros(String pCadena, String pOperacion)
 	{
+		double[] numeros = new double[2];
 		try {
 			
-		int[] numeros = new int[2];
 		String[] parts = pCadena.split(pOperacion);
-		System.out.println(parts[0] + "" + parts[1]);
-		numeros[0] = Integer.parseInt(parts[0]);
-		numeros[1] = Integer.parseInt(parts[1]);
+		System.out.println(parts[0] + " - " + parts[1]);
+		numeros[0] = Double.parseDouble(parts[0]);
+		numeros[1] = Double.parseDouble(parts[1]);
 		System.out.println("NUMEROS: "+numeros[0] + " -  " + numeros[1] );
 		
 		return numeros;
@@ -94,25 +94,25 @@ public class Servidor {
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return null;
+		return numeros;
 	}
 	
-	public int realizarResta(int pNumero1, int pNumero2)
+	public double realizarResta(double pNumero1, double pNumero2)
 	{
 		return pNumero1 - pNumero2;
 	}
 	
-	public int realizarSuma(int pNumero1, int pNumero2)
+	public double realizarSuma(double pNumero1, double pNumero2)
 	{
 		return pNumero1 + pNumero2;
 	}
 	
-	public int realizarMultiplicacion(int pNumero1, int pNumero2)
+	public double realizarMultiplicacion(double pNumero1, double pNumero2)
 	{
 		return pNumero1 * pNumero2;
 	}
 	
-	public int realizarDivision(int pNumero1, int pNumero2)
+	public double realizarDivision(double pNumero1, double pNumero2)
 	{
 		return pNumero1 / pNumero2;
 	}

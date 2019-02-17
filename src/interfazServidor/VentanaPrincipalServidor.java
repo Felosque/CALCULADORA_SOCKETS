@@ -23,6 +23,7 @@ public class VentanaPrincipalServidor extends JFrame {
 		add(panelCentral, BorderLayout.CENTER);
 		
 		socketServidor = new Servidor(this);
+		//iniciarServidor();
 	}
 	
 	public void iniciarServidor()
